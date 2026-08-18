@@ -18,7 +18,6 @@ PowerShell command:
 Default admin:
 
 - Email: `admin@example.com`
-- Password: `Admin123!`
 
 The SQLite database is created automatically at `data/task_manager.sqlite`.
 
