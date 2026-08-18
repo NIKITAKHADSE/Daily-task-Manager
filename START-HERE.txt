@@ -1,0 +1,144 @@
+DAILY TASK MANAGER + GOOGLE SHEET
+=================================
+
+THIS VERSION USES:
+- PHP
+- SQLite
+- HTML / CSS / JavaScript
+- Your existing Google Sheet
+
+YOU DO NOT NEED:
+- MySQL
+- Node.js
+- npm
+- React
+- Google API key
+- Google App ID / Secret
+
+---------------------------------
+1. RUN THE PROJECT
+---------------------------------
+
+Windows easiest method:
+1. Extract this ZIP.
+2. Open the extracted folder.
+3. Double-click: start.bat
+4. Open Chrome:
+   http://localhost:8000
+
+If you are using PowerShell, run:
+   .\start.bat
+
+LOGIN:
+Email: admin@example.com
+Password: Admin123!
+
+---------------------------------
+2. CONNECT YOUR GOOGLE SHEET
+---------------------------------
+
+1. Open your daily Google Sheet.
+2. Open the exact tab you want to connect.
+3. Click Share.
+4. Under General access choose:
+   Anyone with the link
+   Viewer
+5. Copy the normal Google Sheet link from your browser.
+6. In Daily Task Manager click:
+   Google Sheet
+7. Paste the link.
+8. Set Sheet Year (example: 2026).
+9. Tick: Turn on automatic sync
+10. Click: Test Connection
+11. Click: Save Connection
+12. Click: Sync Now
+
+Your Dashboard will then use the Google Sheet automatically.
+
+---------------------------------
+YOUR CURRENT SHEET COLUMNS
+---------------------------------
+
+Date.                     -> Task Date
+Day                       -> Day
+Name                      -> Client / Brand
+Type                      -> Task Type / Category
+POC                       -> POC
+Tasks                     -> Task Description
+Content Responsible       -> Content Responsible
+Responsible editor        -> EMPLOYEE for performance
+Reference links           -> Reference Link
+Time Taken ( Videos)      -> Time Taken
+Priority                  -> Priority
+Remarks filled by editors -> TASK STATUS
+Editors Remarks           -> Editor Remarks
+Acc manager remark        -> Account Manager Remark
+Manager Remark            -> Manager Remark
+
+STATUS RULES:
+Done      -> Completed
+WIP       -> In Progress
+Pending   -> Pending
+Blank     -> Not Started
+Blocked   -> Blocked
+Cancelled -> Cancelled
+
+PRIORITY RULES:
+Urgent / Critical -> Critical
+High / Imp        -> High
+Medium            -> Medium
+Low               -> Low
+Blank             -> Medium
+
+---------------------------------
+HOW AUTO SYNC WORKS
+---------------------------------
+
+Your team updates Google Sheet
+        ↓
+PHP reads the Sheet
+        ↓
+SQLite updates
+        ↓
+Dashboard recalculates
+        ↓
+Employee performance, ranking and charts update
+
+You can choose auto sync every:
+- 30 seconds
+- 1 minute
+- 2 minutes
+- 5 minutes
+- 10 minutes
+
+IMPORTANT:
+Google Sheet tasks should be edited in Google Sheet.
+The web app shows them as read-only so the Sheet stays the main source.
+
+---------------------------------
+IF GOOGLE SHEET CONNECTION FAILS
+---------------------------------
+
+Check these first:
+1. Internet is working.
+2. Sheet is shared as Anyone with the link -> Viewer.
+3. You copied the link while the correct sheet tab was open.
+4. XAMPP PHP has cURL enabled.
+
+To enable cURL in XAMPP:
+1. Open C:\xampp\php\php.ini
+2. Search for:
+   ;extension=curl
+3. Remove the ; so it becomes:
+   extension=curl
+4. Save.
+5. Close start.bat window and start it again.
+
+---------------------------------
+SQLITE
+---------------------------------
+
+The database creates automatically here:
+data\task_manager.sqlite
+
+No MySQL setup is needed.

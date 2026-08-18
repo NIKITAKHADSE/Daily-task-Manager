@@ -1,0 +1,57 @@
+GOOGLE SHEET CONNECTION - SIMPLE GUIDE
+======================================
+
+Your existing daily Google Sheet can stay exactly as it is.
+
+STEP 1
+Open the exact Google Sheet tab you want the dashboard to read.
+
+STEP 2
+Click Share -> General access -> Anyone with the link -> Viewer.
+
+STEP 3
+Copy the normal browser link. Example:
+https://docs.google.com/spreadsheets/d/XXXXXXXXXXXX/edit?gid=123456#gid=123456
+
+STEP 4
+Start the project and login:
+http://localhost:8000
+
+Email: admin@example.com
+Password: Admin123!
+
+STEP 5
+Click "Google Sheet" in the left menu.
+
+STEP 6
+Paste your Google Sheet link.
+
+STEP 7
+Set the Sheet Year.
+Example: if your rows say "19 August" and the work is from 2026, enter 2026.
+
+STEP 8
+Choose Auto Sync and tick "Turn on automatic sync".
+
+STEP 9
+Click "Test Connection".
+You should see how many task rows were found.
+
+STEP 10
+Click "Save Connection" and then "Sync Now".
+
+DONE.
+
+The application will use:
+- Responsible editor = Employee
+- Type = Category
+- Name = Client
+- Tasks = Task Description
+- Remarks filled by editors = Status
+- Priority = Priority
+
+When a new Responsible editor appears in the Sheet, the app automatically creates that employee for analytics.
+
+When a new Type appears, the app automatically creates that task category.
+
+The Sheet remains the source of truth. If you change a Google Sheet task inside the web app, your next Sheet sync would overwrite it, so Sheet tasks are intentionally read-only in the app.
